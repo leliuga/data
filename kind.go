@@ -10,13 +10,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-)
-
-// Default values for the date/time formats
-const (
-	DefaultDateFormat     = "2006-01-02"
-	DefaultDateTimeFormat = "2006-01-02 15:04:05"
-	DefaultTimeFormat     = "15:04:05"
+	"github.com/leliuga/data/constants"
 )
 
 const (
@@ -150,11 +144,11 @@ func DetectValueKind(value any, convert bool) Kind {
 					return KindFloat64
 				} else if _, err = strconv.ParseBool(v); err == nil {
 					return KindBoolean
-				} else if _, err = time.Parse(DefaultDateTimeFormat, v); err == nil {
+				} else if _, err = time.Parse(constants.DefaultDateTimeFormat, v); err == nil {
 					return KindDateTime
-				} else if _, err = time.Parse(DefaultDateFormat, v); err == nil {
+				} else if _, err = time.Parse(constants.DefaultDateFormat, v); err == nil {
 					return KindDate
-				} else if _, err = time.Parse(DefaultTimeFormat, v); err == nil {
+				} else if _, err = time.Parse(constants.DefaultTimeFormat, v); err == nil {
 					return KindTime
 				} else if _, err = uuid.Parse(v); err == nil {
 					return KindID
