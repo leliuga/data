@@ -3,7 +3,6 @@ package http
 import (
 	"bytes"
 	"errors"
-	"net/http"
 	"strings"
 )
 
@@ -11,26 +10,28 @@ import (
 const (
 	MethodInvalid Method = iota //
 	MethodGet                   // RFC 7231, 4.3.1
+	MethodHead                  // RFC 7231, 4.3.2
 	MethodPost                  // RFC 7231, 4.3.3
 	MethodPut                   // RFC 7231, 4.3.4
-	MethodPatch                 // RFC 5789
 	MethodDelete                // RFC 7231, 4.3.5
-	MethodHead                  // RFC 7231, 4.3.2
+	MethodConnect               // RFC 7231, 4.3.6
 	MethodOptions               // RFC 7231, 4.3.7
 	MethodTrace                 // RFC 7231, 4.3.8
+	MethodPatch                 // RFC 5789
 )
 
 var (
 	// MethodNames is a map of Method to string.
 	MethodNames = map[Method]string{
-		MethodGet:     http.MethodGet,
-		MethodPost:    http.MethodPost,
-		MethodPut:     http.MethodPut,
-		MethodPatch:   http.MethodPatch,
-		MethodDelete:  http.MethodDelete,
-		MethodHead:    http.MethodHead,
-		MethodOptions: http.MethodOptions,
-		MethodTrace:   http.MethodTrace,
+		MethodGet:     "GET",
+		MethodHead:    "HEAD",
+		MethodPost:    "POST",
+		MethodPut:     "PUT",
+		MethodDelete:  "DELETE",
+		MethodConnect: "CONNECT",
+		MethodOptions: "OPTIONS",
+		MethodTrace:   "TRACE",
+		MethodPatch:   "PATCH",
 	}
 
 	// ErrMethodInvalid is returned if the HTTP method is invalid.
