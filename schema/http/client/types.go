@@ -1,8 +1,6 @@
 package client
 
 import (
-	nethttp "net/http"
-
 	"github.com/leliuga/data"
 	"github.com/leliuga/data/schema/http"
 	"github.com/leliuga/validation"
@@ -19,15 +17,15 @@ type (
 		Documentation          string           `json:"documentation" yaml:"Documentation"`
 		Deprecated             string           `json:"deprecated"    yaml:"Deprecated"`
 		Labels                 data.Map[string] `json:"labels"        yaml:"Labels"`
-		Headers                nethttp.Header   `json:"headers"       yaml:"Headers"`
+		Headers                http.Headers     `json:"headers"       yaml:"Headers"`
 		Payload                any              `json:"payload"       yaml:"Payload"`
 		Expect                 *Expect          `json:"expect"        yaml:"Expect"`
 	}
 
 	// Expect is an HTTP response expectation.
 	Expect struct {
-		Status  int               `json:"status"  yaml:"Status"`
-		Headers map[string]string `json:"headers" yaml:"Headers"`
+		Status  http.Status  `json:"status"  yaml:"Status"`
+		Headers http.Headers `json:"headers" yaml:"Headers"`
 	}
 
 	// Endpoints represents the http client endpoints.

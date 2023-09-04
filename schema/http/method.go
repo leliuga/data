@@ -35,7 +35,7 @@ var (
 	}
 
 	// ErrMethodInvalid is returned if the HTTP method is invalid.
-	ErrMethodInvalid = errors.New("invalid method")
+	ErrMethodInvalid = errors.New("invalid http method")
 )
 
 // String method to string
@@ -57,8 +57,9 @@ func (m *Method) UnmarshalJSON(b []byte) error {
 
 // ParseMethod parses method string.
 func ParseMethod(name string) Method {
+	name = strings.ToUpper(name)
 	for k, v := range MethodNames {
-		if v == strings.ToUpper(name) {
+		if v == name {
 			return k
 		}
 	}
