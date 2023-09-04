@@ -21,14 +21,14 @@ type (
 		IsStatic               bool             `json:"is_static"     yaml:"IsStatic"`
 		Request                data.IModel      `json:"request"       yaml:"Request"`
 		Response               data.IModel      `json:"response"      yaml:"Response"`
-		Handlers               []Handler        `json:"-"`
+		Handlers               []HandlerFn      `json:"-"`
 	}
 
 	// Endpoints represents the http server endpoints.
 	Endpoints []*Endpoint
 
-	// Handler represents the http server endpoint handler.
-	Handler func(IContext) error
+	// HandlerFn represents the http server endpoint handler.
+	HandlerFn func(IContext) error
 
 	// IContext represents the http server request context.
 	IContext interface {
