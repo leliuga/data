@@ -39,7 +39,7 @@ const (
 	StatusPaymentRequired              = 402 // RFC 9110, 15.5.3
 	StatusForbidden                    = 403 // RFC 9110, 15.5.4
 	StatusNotFound                     = 404 // RFC 9110, 15.5.5
-	StatusNotAllowed                   = 405 // RFC 9110, 15.5.6
+	StatusMethodNotAllowed             = 405 // RFC 9110, 15.5.6
 	StatusNotAcceptable                = 406 // RFC 9110, 15.5.7
 	StatusProxyAuthRequired            = 407 // RFC 9110, 15.5.8
 	StatusRequestTimeout               = 408 // RFC 9110, 15.5.9
@@ -110,7 +110,7 @@ var (
 		StatusPaymentRequired:              "Payment Required",
 		StatusForbidden:                    "Forbidden",
 		StatusNotFound:                     "Not Found",
-		StatusNotAllowed:                   "Method Not Allowed",
+		StatusMethodNotAllowed:             "Method Not Allowed",
 		StatusNotAcceptable:                "Not Acceptable",
 		StatusProxyAuthRequired:            "Proxy Authentication Required",
 		StatusRequestTimeout:               "Request Timeout",
