@@ -1,3 +1,7 @@
+OS          ?= linux
+ARCH        ?= amd64
+CGO_ENABLED ?= 0
+
 GO_CMD      ?= CGO_ENABLED=$(CGO_ENABLED) GOOS=$(OS) GOARCH=$(ARCH) go
 
 .PHONY: default
