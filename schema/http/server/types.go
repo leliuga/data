@@ -21,9 +21,18 @@ type (
 		IsStatic               bool             `json:"is_static"     yaml:"IsStatic"`
 		Request                data.IModel      `json:"request"       yaml:"Request"`
 		Response               data.IModel      `json:"response"      yaml:"Response"`
-		Handlers               []any            `json:"-"`
+		Handlers               []Handler        `json:"-"`
 	}
 
 	// Endpoints represents the http server endpoints.
 	Endpoints []*Endpoint
+
+	// Handler represents the http server endpoint handler.
+	Handler func(IContext) error
+
+	// IContext represents the http server request context.
+	IContext interface {
+		// Validate makes Endpoint validatable by implementing [validation.Validatable] interface.
+		Validate() error
+	}
 )
