@@ -7,6 +7,9 @@ type (
 	// Method defines an HTTP method.
 	Method uint8
 
+	// Mime defines an HTTP MIME type.
+	Mime uint8
+
 	// Status defines an HTTP status.
 	Status uint16
 

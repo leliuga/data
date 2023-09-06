@@ -6,18 +6,19 @@ import (
 
 // NewError creates a new Error instance.
 func NewError(status Status, message ...string) IError {
-	if len(message) > 0 {
+	if len(message) > 1 {
 		return &Error{status, strings.Join(message, " ")}
 	}
-	return &Error{status, status.String()}
-}
 
-// Error returns the error message.
-func (e *Error) Error() string {
-	return e.Message
+	return &Error{Status: status, Message: message[0]}
 }
 
 // StatusCode returns the HTTP status code.
 func (e *Error) StatusCode() Status {
 	return e.Status
+}
+
+// Error returns the error message.
+func (e *Error) Error() string {
+	return e.Message
 }
