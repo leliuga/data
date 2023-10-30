@@ -1,5 +1,7 @@
 # Data 👋
 
+!!! Deprecated repo !!! Moved to https://github.com/leliuga/cdk/tree/main/types
+
 ## Description
 
 Data is a Go package that provides data manipulations.
